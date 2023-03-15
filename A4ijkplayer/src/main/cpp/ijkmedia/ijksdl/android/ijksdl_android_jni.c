@@ -196,7 +196,7 @@ int SDL_Android_GetApiLevel()
 }
 
 
-JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved)
+JNIEXPORT jint JNICALL SDL_JNI_OnLoad(JavaVM *vm, void *reserved)
 {
     int retval;
     JNIEnv* env = NULL;
@@ -212,6 +212,3 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved)
     return JNI_VERSION_1_4;
 }
 
-JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *jvm, void *reserved)
-{
-}

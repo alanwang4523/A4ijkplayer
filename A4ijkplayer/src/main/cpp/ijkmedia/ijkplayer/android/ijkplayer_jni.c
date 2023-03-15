@@ -1203,6 +1203,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 
     FFmpegApi_global_init(env);
 
+    SDL_JNI_OnLoad(vm,reserved);
+
     return JNI_VERSION_1_4;
 }
 
