@@ -12,6 +12,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+                arguments '-DANDROID_ARM_NEON=TRUE', '-DANDROID_STL=c++_shared'
+            }
+        }
     }
 
     buildTypes {
@@ -20,10 +27,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.6.0"
+        }
+    }
+    ndkVersion '21.4.7075529'
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+clean.doFirst {
+    delete "${projectDir}/.cxx"
 }
 
 dependencies {
