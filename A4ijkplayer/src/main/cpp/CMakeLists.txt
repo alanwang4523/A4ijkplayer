@@ -92,6 +92,7 @@ file(GLOB_RECURSE SOURCE_C_FILES_OF_IJKPROF "${PATH_TO_A4_IJK_PROF}/*.c")
 
 include_directories(
         ${PATH_TO_OTHER_LIBS}/ffmpeg/include
+        ${PATH_TO_OTHER_LIBS}/ffmpeg/include/${ANDROID_ABI}
         ${PATH_TO_A4_IJK_MEDIA}
         ${PATH_TO_A4_IJK_PROF}
         ${PATH_TO_A4_IJK_MEDIA}/ijkj4a
