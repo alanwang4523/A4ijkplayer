@@ -17,13 +17,13 @@ package com.alanwang4523.a4ijkplayerdemo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Toast;
-import java.io.File;
 import androidx.appcompat.app.AppCompatActivity;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
@@ -60,24 +60,25 @@ public class TestIjkPlayerActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    private String getTestMediaPath() {
-        String videoDir = this.getFilesDir().getAbsolutePath() + "/";
-        String videoPath = videoDir + "horizontal_test_video_169.mp4";
-//            String videoPath = videoDir + "qiaobianguniang.mp4";
-//            String videoPath = videoDir + "hv_test_video_11.mp4";
-        return videoPath;
+    private IjkMediaPlayer createMediaPlayer() {
+        IjkMediaPlayer ijkPlayer = new IjkMediaPlayer();
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec", 0);
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "opensles", 0);
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "framedrop", 1);
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "start-on-prepared", 0);
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "http-detect-range-support", 0);
+        ijkPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 48);
+        return ijkPlayer;
+    }
+
+    private Uri getTestMediaUri() {
+//        return Uri.parse("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear4/prog_index.m3u8");
+//        return Uri.parse("https://media.w3.org/2010/05/sintel/trailer.mp4");
+//        return Uri.parse("http://vjs.zencdn.net/v/oceans.mp4");
+        return Uri.parse("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
     }
 
     public void startPlay() {
-        String videoPath = getTestMediaPath();
-        File videoFile = new File(videoPath);
-        Log.e(TAG, "mVideoPath = " + videoFile);
-
-        if (!videoFile.exists()) {
-            Toast.makeText(this, "Video file not exist!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         if (mDisplaySurface == null && mTextureView.isAvailable()) {
             mDisplaySurface = new Surface(mTextureView.getSurfaceTexture());
         }
@@ -88,13 +89,14 @@ public class TestIjkPlayerActivity extends AppCompatActivity implements View.OnC
         }
         try {
             if (mIjkPlayer == null) {
-                mIjkPlayer = new IjkMediaPlayer();
+                mIjkPlayer = createMediaPlayer();
             } else {
                 mIjkPlayer.reset();
             }
 
+            Uri testUri = getTestMediaUri();
+            mIjkPlayer.setDataSource(this, testUri);
             mIjkPlayer.setSurface(mDisplaySurface);
-            mIjkPlayer.setDataSource(videoPath);
             mIjkPlayer.setOnPreparedListener(mp -> mp.start());
             mIjkPlayer.prepareAsync();
         } catch (Exception e) {
