@@ -23,4 +23,6 @@
     <color name="ijk_color_blue_900">#0D47A1</color>
 
     <color name="ijk_transparent_dark">#77000000</color>
+
+    <color name="ijk_app_tool_bar_bg">@color/ijk_color_blue_600</color>
 </resources>

@@ -70,6 +70,9 @@ public class SampleMediaListFragment extends Fragment {
             }
         });
 
+        mAdapter.addItem("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", "big buck bunny");
+        mAdapter.addItem("https://media.w3.org/2010/05/sintel/trailer.mp4", "trailer");
+        mAdapter.addItem("http://vjs.zencdn.net/v/oceans.mp4", "oceans");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8", "bipbop basic master playlist");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8", "bipbop basic 400x300 @ 232 kbps");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8", "bipbop basic 640x480 @ 650 kbps");
