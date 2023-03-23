@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alanwang4523.a4ijkplayerdemo;
+package com.alanwang4523.a4ijkplayerdemo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.alanwang4523.a4ijkplayerdemo.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

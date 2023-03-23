@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alanwang4523.a4ijkplayerdemo;
+package com.alanwang4523.a4ijkplayerdemo.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +24,9 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Toast;
+
+import com.alanwang4523.a4ijkplayerdemo.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
