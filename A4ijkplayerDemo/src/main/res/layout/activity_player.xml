@@ -17,7 +17,9 @@
             android:id="@+id/video_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"></com.alanwang4523.a4ijkplayerdemo.widget.IjkVideoView>
+            android:layout_gravity="center">
+
+        </com.alanwang4523.a4ijkplayerdemo.widget.IjkVideoView>
 
         <TextView
             android:id="@+id/toast_text_view"
