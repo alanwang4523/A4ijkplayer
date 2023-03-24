@@ -14,7 +14,14 @@ ijkplayer compile with cmake
 <img src=./Screenshots/Screenshot_20230323_184501_com.alanwang4523.a4ijkplayerdemo.jpg width=30% />
 </div>
 
+**ijkplayer native 代码调试截图**
+<div align="left">
+<img src=./Screenshots/ijkplayer_native_debug_prepare_async.png width=60% />
+</div>
+
 
 **相关项目**
+
 https://github.com/bilibili/ijkplayer
+
 https://github.com/alanwang4523/ijkplayer_Build4Android
