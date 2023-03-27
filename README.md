@@ -16,8 +16,18 @@ ijkplayer compile with cmake
 
 **ijkplayer native 代码调试截图**
 <div align="left">
-<img src=./Screenshots/ijkplayer_native_debug_prepare_async.png width=60% />
+<img src=./Screenshots/ijkplayer_native_debug_prepare_async.png width=80% />
 </div>
+
+**A4ijkplayer 编译的 aar 截图**
+**执行以下命令分别编译 A4ijkplayer 的 Debug 和 Release aar**
+**./gradlew clean :A4ijkplayer:assembleDebug**
+**./gradlew clean :A4ijkplayer:assembleRelease**
+输出结果在项目目录下的：./A4ijkplayer/build/outputs/aar/ 目录下，如下：
+<div align="left">
+<img src=./Screenshots/ijkplayer_aar.png width=80% />
+</div>
+
 
 
 **相关项目**
