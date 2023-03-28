@@ -1192,6 +1192,12 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
     }
     assert(env != NULL);
 
+    // 因为把 sdl 和 ijkplayer 和成一个 so 了，不会调用 sdl 原本的 JNI_OnLoad，所以需在这里主动调用
+    jint result = SDL_JNI_OnLoad(vm, reserved);
+    if (result < 0) {
+        return result;
+    }
+
     pthread_mutex_init(&g_clazz.mutex, NULL );
 
     // FindClass returns LocalReference
@@ -1202,8 +1208,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
     ijkmp_global_set_inject_callback(inject_callback);
 
     FFmpegApi_global_init(env);
-
-    SDL_JNI_OnLoad(vm,reserved);
 
     return JNI_VERSION_1_4;
 }
